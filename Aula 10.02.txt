@@ -1,0 +1,102 @@
+https://nodejs.org/pt
+Caso dê erro de segurança ao instalar o node e o pacote npm, abrir o PowerShell como administrador e executar o seguinte comando 
+Set-ExecutionPolicy RemoteSigned
+E escolha a opção [A] Sim para Todos
+
+
+----------------------------------------------
+Para criar projeto
+ 
+npx create-expo-app@latest
+y
+'nomedoproejeto'
+cd 'nomedapasta'
+code . 
+npm start
+permitir acesso
+w (abrir pagina na web)
+a (para abrir projeto dentro do AndroidStudio)
+Para resetar o projeto, Control C para parar o servidor
+Comando npm run reset-project
+npm start novamente
+w (para abrir na web projeto em branco)
+
+----------------------------------------------
+App AndroidStudio 
+Para visualizar o projeto em um emulador de celular 
+Na página Welcome apertar em More Actions 
+Virtual Device
+Escolher um modelo de aparelho e android
+Baixar
+
+----------------------------------------------
+Quando baixar o projeto no GitHub, para executar o arquivo primeiramente deve rodar o comando 
+npm install 
+Este comando irá baixar as pastas ignoradas ao subir o projeto pro Git 
+
+-------------------------------------------------
+Youtube - Canal Glaucia Lemos TypeScript (Curso) 
+
+----------------------------------------------
+Arquivos .tsx ou .jsx significam que a extensão dele é de um arquivo react (por contra do x)
+
+----------------------------------------------
+
+PROJETO
+
+index 
+
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import BotaoProps from './components/BotaoProps';
+
+const App = () => {
+  const handlePress = () => {
+    console.log('Botão pressionado!');
+  };
+
+  const teste = () => {
+    console.log('Segundo teste');
+  };
+
+  return( 
+    <View style={styles.container}>
+      <BotaoProps label="Clique aqui" corFundo="pink" onPress={handlePress} />
+      <BotaoProps label="Clique agora" corFundo="purple" onPress={teste} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+});
+
+export default App;
+
+
+
+BotaoProps.tsx
+
+import React from "react";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+
+const BotaoProps = ({ label, corFundo, onPress }) => {
+
+    const botaoStyle = {
+        backgroundColor : corFundo,
+        padding: 10,
+        borderRadius: 5,
+    };
+
+    return (
+        <TouchableOpacity onPress={onPress} style={botaoStyle}>
+            <Text> {label}  </Text>
+        </TouchableOpacity>
+    );
+};
+
+export default BotaoProps;
