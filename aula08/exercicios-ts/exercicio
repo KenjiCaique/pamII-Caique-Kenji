@@ -1,0 +1,5 @@
+let produto: (array) = 'Mouse';
+let produto: (number) = 'Mouse';
+let produto: (boolean) = 'Mouse';
+
+console.log
